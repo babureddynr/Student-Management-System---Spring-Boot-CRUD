@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Student Management System</title>
+    <!-- Bootstrap CSS -->
+	<link rel="icon" href="https://www.bing.com/images/search?view=detailV2&ccid=ZAHAvmmD&id=372321D89A9D53ADC8817D1A23EBD226B21A34B6&thid=OIP.ZAHAvmmD1OOGUB9yv20jyQHaHa&mediaurl=https%3a%2f%2ficon-library.com%2fimages%2fstudent-icon%2fstudent-icon-14.jpg&exph=512&expw=512&q=student+favicon&simid=608033195167199415&FORM=IRPRST&ck=89AFA29C314293ACDC8189A0182DE045&selectedIndex=0&itb=1" type="image/png">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        .card {
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 400px;
+        }
+		#tx1{
+			position: absolute;
+			left: 400px;
+			bottom: 660px;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		}
+    </style>
+	
+</head>
+<body>
+	<h2 id="tx1">WELCOME TO THE STUDENT MANAGEMNT PLZ LOGIN</h2>
+    <div class="container">
+        <div class="card">
+            <h3 class="text-center">Login</h3>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <div id="login-message" class="alert alert-danger mt-3" role="alert" style="display: none;"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Dummy authentication check
+            if (username === 'admin' && password === 'password') {
+                window.location.href = 'index.html';
+            } else {
+                displayLoginMessage('Invalid username or password');
+            }
+        });
+
+        function displayLoginMessage(message) {
+            const loginMessage = document.getElementById('login-message');
+            loginMessage.style.display = 'block';
+            loginMessage.textContent = message;
+        }
+    </script>
+</body>
+</html>
